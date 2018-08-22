@@ -17,6 +17,11 @@ placeholder_input = [3, 4, -1, 1]
 placeholder_input_2 = [1, 2, 0]
 
 def formatted_list(formatable_list):
+	'''
+	This function takes and arbitrary list, and creates a new list from it without negative numbers and 0
+	At the end of the list the value of the counter variable appended
+
+	'''
 	formatted_list = []
 	counter = 0
 	for element in formatable_list:
@@ -30,18 +35,25 @@ def formatted_list(formatable_list):
 
 	return my_val
 
-#(len(placeholder_input[-1:])+max(placeholder_input[:-1]))
 	
-
 def generated_lengthy_list(arbitrary_list):
+	'''
+	This function uses the previously formated list and list slicing to make a new list that contains positive number from 1 to max_num + 1 
+
+	'''
 	value = formatted_list(arbitrary_list)
 	generated_sorted_list = []
-	faszom = (len(value[:-1])+max(value[-1:]))
-	for each_num in range(min(value[:-1]),faszom+1):
+	max_val = (len(value[:-1])+max(value[-1:]))
+	for each_num in range(min(value[:-1]),max_val+1):
 		generated_sorted_list.append(each_num)
 	return generated_sorted_list
 
 def problem_solver(a_list):
+	'''
+	This function takes a list, applies the formatted_list and generater_lenghty_list function to it 
+	and then compare the indexed values of those lists
+
+	'''
 	index = 0
 	list_1 = formatted_list(a_list)
 	list_2 = generated_lengthy_list(a_list)
